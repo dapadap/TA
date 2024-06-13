@@ -23,15 +23,15 @@ Serial.println("kirim");
  Serial2.print(voltage1);Serial2.print("@");
  Serial2.print(current1);Serial2.print("@");
  Serial2.print(power1);Serial2.print("@");
- Serial2.print(energy1);Serial2.print("@");
- Serial2.print(frequency1);Serial2.print("@");
- Serial2.print(pf1);Serial2.print("@");
- Serial2.print(voltage2);Serial2.print("@");
+ //Serial2.print(energy1);Serial2.print("@");
+// Serial2.print(frequency1);Serial2.print("@");
+ //Serial2.print(pf1);Serial2.print("@");
+ Serial2.print(voltage2);Serial2.print("@");  
  Serial2.print(current2);Serial2.print("@");
  Serial2.print(power2);Serial2.print("@");
- Serial2.print(energy2);Serial2.print("@");
- Serial2.print(frequency2);Serial2.print("@");
- Serial2.print(pf2);
+ //Serial2.print(energy2);Serial2.print("@");
+// Serial2.print(frequency2);Serial2.print("@");
+// Serial2.print(pf2);
  
 }else{
 
