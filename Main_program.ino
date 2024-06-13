@@ -1,5 +1,6 @@
 #include <DHT.h>
 #include <PZEM004Tv30.h>
+#include <EEPROM.h>
 
 #include "RTClib.h"
 RTC_DS3231 rtc;
@@ -11,6 +12,7 @@ String hari;
 int set_day;
 int set_hour;
 int set_minute;
+int day;
 
 #include <LiquidCrystal_I2C.h>
 LiquidCrystal_I2C lcd(0x27, 20, 4);
@@ -30,7 +32,7 @@ int nilai_sensor=0;
 #define relay4 14
 
 
-int t_set_max = 41;
+int t_set_max = 45;
 int t_set_min = 39;
 int h_set_max = 70;
 int h_set_min = 50;
@@ -99,8 +101,10 @@ bool status=true;
 void setup() {
   Serial.begin(9600);
   Serial2.begin(9600);
-
+  //EEPROM
+  EEPROM.begin(512);
   //dht
+  
   for (int i = 0; i < 4; i++) {
    dht[i].begin();
   }
@@ -115,8 +119,8 @@ void setup() {
     rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
     //atur waktu secara manual
     // January 21, 2019 jam 10:30:00
-    // rtc.adjust(DateTime(2019, 1, 25, 10, 30, 0));
-  }
+   // rtc.adjust(DateTime(2019, 1, 25, 10, 30, 0));
+  }rtc.adjust(DateTime(2019, 1, 25, 10, 30, 0));
 
   //PZEM KWH
       for(int i = 0; i < NUM_PZEMS; i++)
@@ -156,11 +160,30 @@ void setup() {
   lcd2.setCursor(3,2);lcd2.print("Crevotech.id");
   delay(3000);
   lcd.clear(); lcd2.clear(); 
+
+  //eeprom
+  t_set_max = EEPROM.read(1);
+  t_set_min = EEPROM.read(2);
+  h_set_max = EEPROM.read(3);
+  h_set_min = EEPROM.read(4);
+  day = EEPROM.read(8);
+  set_day = EEPROM.read(5);
+  set_minute = EEPROM.read(7);
+  set_hour = EEPROM.read(6);
 }
 
 void loop() {
+  DateTime now = rtc.now();
+  jam     = now.hour();
+  menit   = now.minute();
+  detik   = now.second();
+  tanggal = now.day();
+  bulan   = now.month();
+  tahun   = now.year();
+  hari    = daysOfTheWeek[now.dayOfTheWeek()];
+
  delay(10);
- // waktu();
+ Conter_hari();
  kWh();
  baca_sensor();
  menu();
@@ -179,8 +202,8 @@ if(t[0]<t_set_min&&t[1]<t_set_min&&t[2]<t_set_min&&t[3]<t_set_min){
   //mode4();
 }else if((t[0]>t_set_min||t[1]>t_set_min)&&(t[2]>t_set_min||t[3]>t_set_min)){
   mode4();
-}
- 
+} 
+
 /*
 //---------------LAMPU----------------//
  if(t[0]>t_set_max && t[1]>t_set_max ){
@@ -198,7 +221,9 @@ if(t[0]<t_set_min&&t[1]<t_set_min&&t[2]<t_set_min&&t[3]<t_set_min){
 //------------HUMIDIFIER-------------//
 //---------------FAN----------------//
 
- }  
+//-------------Penyimpanan Data--------------//
+EEPROM.commit();
+}  
   
 
 
