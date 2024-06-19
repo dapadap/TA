@@ -1,0 +1,72 @@
+
+void keyboard_commad() {
+  // put your main code here, to run repeatedly:
+  //delay(10); // this speeds up the simulation
+if (Serial2.available() > 0) {
+    //Serial.print("baca");
+    //buatapa[].clear
+    msg = Serial2.readString();
+    //Serial.println("DATA RAW" + msg);
+    parsing = true;
+    delay(50);
+  }
+if (parsing) {
+    int x = 0;
+    //Serial.println("DATA RAW" + msg);
+    for (int i = 0; i < msg.length(); i++) {
+    in_command="";
+    }
+    for (int i = 0; i < msg.length(); i++) {
+      delay(50);
+    if (msg[0] == 'a') {
+      data = 1;
+    } else if(msg[0] == 'b') {
+      data = 2;
+    } else if(msg[0] == 'c') {
+      data = 3;
+    }else if(msg[0] == 'd') {
+      data = 4;
+    }else if(msg[0] == 'e') {
+      data = 5;
+    }else if(msg[0] == 'f') {
+      data = 6;
+    }else if(msg[0] == 'g') {
+      data = 7;
+    }
+
+    
+    if(data==1){
+      in_command += msg[i+1];
+      t_set_min = in_command.toInt();
+      EEPROM.write(2,t_set_min);
+    }else if(data==2){
+      in_command += msg[i+1];
+      t_set_max = in_command.toInt();
+      EEPROM.write(1,t_set_max);
+    }else if(data==3){
+      in_command += msg[i+1];
+      h_set_max = in_command.toInt();
+      EEPROM.write(3,h_set_max);
+    }else if(data==4){
+      in_command += msg[i+1];
+      h_set_min = in_command.toInt();
+      EEPROM.write(4,t_set_max);
+    }else if(data==5){
+      in_command += msg[i+1];
+      set_day = in_command.toInt();
+      EEPROM.write(5,set_day);
+    }else if(data==6){
+      in_command += msg[i+1];
+      set_hour = in_command.toInt();
+      EEPROM.write(6,set_hour);
+    }else if(data==7){
+      in_command += msg[i+1];
+      set_minute = in_command.toInt();
+      EEPROM.write(7,set_minute);
+    } 
+
+    } 
+    
+    parsing = false;
+}
+}
