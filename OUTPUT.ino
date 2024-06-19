@@ -87,8 +87,8 @@ VERSI2
 0011    L1AN L1BF 12AN L2BN
 0100    L1AF L1BF 12AN L2BN
 0101    L1AF L1BF L2AF L2BF
-0110    fan 1 on
-0111    fan 2 on
+0110    LIAF L1BF L2BF L2BN
+0111    LIAF L1BF L2BN L2BF
 1000    fan 1 off
 1001    fan 2 off
 1010    humidifier 1 on
@@ -123,11 +123,11 @@ void mode5(){
 digitalWrite(relay1,0);digitalWrite(relay2,1);digitalWrite(relay3,0);digitalWrite(relay4,1);
 }
 
-void fan1_on(){
+void mode6(){
 digitalWrite(relay1,0);digitalWrite(relay2,1);digitalWrite(relay3,1);digitalWrite(relay4,0);  
 }
 
-void fan2_on(){
+void mode7(){
 digitalWrite(relay1,0);digitalWrite(relay2,1);digitalWrite(relay3,1);digitalWrite(relay4,1);  
 }
 
