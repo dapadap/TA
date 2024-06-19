@@ -1,10 +1,10 @@
 void menu(){
 if(digitalRead(sett)==LOW){
 opsi++;
-delay(100);
+delay(50);
 }if(digitalRead(avai1)==LOW){
 opsi--;
-delay(100);
+delay(50);
 }if(opsi==8){
   opsi=1;
 }
@@ -13,10 +13,10 @@ switch(opsi){
   case 1:
   lcd2.setCursor(16,1);lcd2.print("Set");
   lcd2.setCursor(15,2);lcd2.print("Point");
-  lcd2.setCursor(1,0);lcd2.print("t_max : ");lcd2.print(t_set_max);lcd2.print("C");
-  lcd2.setCursor(1,1);lcd2.print("t_min : ");lcd2.print(t_set_min);lcd2.print("C");
-  lcd2.setCursor(1,2);lcd2.print("h_max : ");lcd2.print(h_set_max);lcd2.print("%");
-  lcd2.setCursor(1,3);lcd2.print("h_min : ");lcd2.print(h_set_min);lcd2.print("%");
+  lcd2.setCursor(1,0);lcd2.print("t_max : ");lcd2.print(t_set_max);lcd2.print("C ");
+  lcd2.setCursor(1,1);lcd2.print("t_min : ");lcd2.print(t_set_min);lcd2.print("C    ");
+  lcd2.setCursor(1,2);lcd2.print("h_max : ");lcd2.print(h_set_max);lcd2.print("% ");
+  lcd2.setCursor(1,3);lcd2.print("h_min : ");lcd2.print(h_set_min);lcd2.print("%    ");
   lcd2.setCursor(13,3); lcd2.print(" ");
   lcd2.setCursor(13,0); lcd2.print("<");
   if(digitalRead(up)==LOW){
@@ -34,10 +34,10 @@ switch(opsi){
   case 2:
   lcd2.setCursor(16,1);lcd2.print("Set");
   lcd2.setCursor(15,2);lcd2.print("Point");
-  lcd2.setCursor(1,0);lcd2.print("t_max : ");lcd2.print(t_set_max);lcd2.print("C");
-  lcd2.setCursor(1,1);lcd2.print("t_min : ");lcd2.print(t_set_min);lcd2.print("C");
-  lcd2.setCursor(1,2);lcd2.print("h_max : ");lcd2.print(h_set_max);lcd2.print("%");
-  lcd2.setCursor(1,3);lcd2.print("h_min : ");lcd2.print(h_set_min);lcd2.print("%");  
+  lcd2.setCursor(1,0);lcd2.print("t_max : ");lcd2.print(t_set_max);lcd2.print("C ");
+  lcd2.setCursor(1,1);lcd2.print("t_min : ");lcd2.print(t_set_min);lcd2.print("C    ");
+  lcd2.setCursor(1,2);lcd2.print("h_max : ");lcd2.print(h_set_max);lcd2.print("% ");
+  lcd2.setCursor(1,3);lcd2.print("h_min : ");lcd2.print(h_set_min);lcd2.print("%    ");  
   lcd2.setCursor(13,0); lcd2.print(" ");
   lcd2.setCursor(13,1); lcd2.print("<");
     if(digitalRead(up)==LOW){
@@ -55,10 +55,10 @@ switch(opsi){
   case 3:
   lcd2.setCursor(16,1);lcd2.print("Set");
   lcd2.setCursor(15,2);lcd2.print("Point");
-  lcd2.setCursor(1,0);lcd2.print("t_max : ");lcd2.print(t_set_max);lcd2.print("C");
-  lcd2.setCursor(1,1);lcd2.print("t_min : ");lcd2.print(t_set_min);lcd2.print("C");
-  lcd2.setCursor(1,2);lcd2.print("h_max : ");lcd2.print(h_set_max);lcd2.print("%");
-  lcd2.setCursor(1,3);lcd2.print("h_min : ");lcd2.print(h_set_min);lcd2.print("%");
+  lcd2.setCursor(1,0);lcd2.print("t_max : ");lcd2.print(t_set_max);lcd2.print("C ");
+  lcd2.setCursor(1,1);lcd2.print("t_min : ");lcd2.print(t_set_min);lcd2.print("C    ");
+  lcd2.setCursor(1,2);lcd2.print("h_max : ");lcd2.print(h_set_max);lcd2.print("% ");
+  lcd2.setCursor(1,3);lcd2.print("h_min : ");lcd2.print(h_set_min);lcd2.print("%    ");
   lcd2.setCursor(13,1); lcd2.print(" ");
   lcd2.setCursor(13,2); lcd2.print("<");
     if(digitalRead(up)==LOW){
@@ -76,10 +76,10 @@ switch(opsi){
   case 4:
   lcd2.setCursor(16,1);lcd2.print("Set");
   lcd2.setCursor(15,2);lcd2.print("Point");
-  lcd2.setCursor(1,0);lcd2.print("t_max : ");lcd2.print(t_set_max);lcd2.print("C");
-  lcd2.setCursor(1,1);lcd2.print("t_min : ");lcd2.print(t_set_min);lcd2.print("C");
-  lcd2.setCursor(1,2);lcd2.print("h_max : ");lcd2.print(h_set_max);lcd2.print("%");
-  lcd2.setCursor(1,3);lcd2.print("h_min : ");lcd2.print(h_set_min);lcd2.print("%");
+  lcd2.setCursor(1,0);lcd2.print("t_max : ");lcd2.print(t_set_max);lcd2.print("C ");
+  lcd2.setCursor(1,1);lcd2.print("t_min : ");lcd2.print(t_set_min);lcd2.print("C    ");
+  lcd2.setCursor(1,2);lcd2.print("h_max : ");lcd2.print(h_set_max);lcd2.print("% ");
+  lcd2.setCursor(1,3);lcd2.print("h_min : ");lcd2.print(h_set_min);lcd2.print("%    ");
   lcd2.setCursor(13,3); lcd2.print("<");
   lcd2.setCursor(13,2); lcd2.print(" ");
     if(digitalRead(up)==LOW){
